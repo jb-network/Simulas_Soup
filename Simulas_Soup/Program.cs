@@ -7,105 +7,64 @@
 // 3) Seasoning: spicy, salty, sweet
 
 //User selection
-//(SoupType soup_type, IngredientType Ingreident_type, SeasonType season_type) SelectSoup = GetSoup();
+(SoupType soup_type, IngredientType Ingreident_type, SeasonType season_type) SelectSoup = MakeSoup();
 
-Console.WriteLine("Welcome to Simula's Soup Shop");
-
-// Set Base |--------------------------------------------------------------------|
-
-string Soup_Base = "null";
-while (Soup_Base != "soup" && Soup_Base != "stew" && Soup_Base != "gumbo")
-{
-    Console.WriteLine("What type of Soup base would you like: Soup, Stew, or Gumbo?");
-    Soup_Base = Console.ReadLine().ToLower();
-}
-
-SoupType Soup_Name = Soup_Base switch
-{
-    "soup" => SoupType.Soup,
-    "stew" => SoupType.Stew,
-    "gumbo" => SoupType.Gumbo,
-};
-
-Console.WriteLine($"test {Soup_Name}");
-
-
-// Set Ingredient |--------------------------------------------------------------------|
-string Ingredient_Base = "null";
-while (Ingredient_Base != "mushrooms" && Ingredient_Base != "chicken" && Ingredient_Base != "carrots" && Ingredient_Base != "potatoes")
-{
-    Console.WriteLine("What type of main ingredient would you like: Mushrooms, Chicken, Carrots, or Potatoes?");
-    Ingredient_Base = Console.ReadLine().ToLower();
-}
-IngredientType Ingredient_Name = Ingredient_Base switch
-{
-    "mushrooms" => IngredientType.Mushrooms,
-    "chicken" => IngredientType.Chicken,
-    "carrots" => IngredientType.Carrots,
-    "potatoes" => IngredientType.Potatoes,
-};
-
-Console.WriteLine($"test {Ingredient_Name}");
-
-
-// Set Seasoning |--------------------------------------------------------------------|
-string Seasoning_Base = "null";
-while (Seasoning_Base != "spicy" && Seasoning_Base != "salty" && Seasoning_Base != "sweet")
-{
-    Console.WriteLine("What type of seasoning would you like: Spicy, Salty, or Sweet?");
-    Seasoning_Base = Console.ReadLine().ToLower();
-}
-SeasonType Seasoning_Name = Seasoning_Base switch
-{
-    "spicy" => SeasonType.Spicy,
-    "salty" => SeasonType.Salty,
-    "sweet" => SeasonType.Sweet,
-};
-Console.WriteLine($"test {Seasoning_Name}");
+//Final output
+Console.WriteLine($"\nYou ordered: {SelectSoup.season_type} {SelectSoup.Ingreident_type} {SelectSoup.soup_type}");
 Console.ReadKey();
 
 
-//Methods
-/*
-
-(SoupType, IngredientType, SeasonType) GetSoup()
+//Method
+(SoupType, IngredientType, SeasonType) MakeSoup()
 {
     Console.WriteLine("Welcome to Simula's Soup Shop");
 
-    //Base
+    // Set Base |--------------------------------------------------------------------|
     string Soup_Base = "null";
-    while (Soup_Base != "soup" || Soup_Base != "stew" || Soup_Base != "gumbo")
+    while (Soup_Base != "soup" && Soup_Base != "stew" && Soup_Base != "gumbo")
     {
-
         Console.WriteLine("What type of Soup base would you like: Soup, Stew, or Gumbo?");
         Soup_Base = Console.ReadLine().ToLower();
-        Console.WriteLine("error");
     }
-        SoupType Soup_Name = Soup_Base switch
-        {
-            "soup" => SoupType.soup,
-            "stew" => SoupType.stew,
-            "gumbo" => SoupType.gumbo,
-        };
- 
+    SoupType Soup_Name = Soup_Base switch
+    {
+        "soup" => SoupType.Soup,
+        "stew" => SoupType.Stew,
+        "gumbo" => SoupType.Gumbo,
+    };
+    
+    // Set Ingredient |--------------------------------------------------------------------|
+    string Ingredient_Base = "null";
+    while (Ingredient_Base != "mushroom" && Ingredient_Base != "chicken" && Ingredient_Base != "carrot" && Ingredient_Base != "potato")
+    {
+        Console.WriteLine("What type of main ingredient would you like: Mushroom, Chicken, Carrot, or Potato?");
+        Ingredient_Base = Console.ReadLine().ToLower();
+    }
+    IngredientType Ingredient_Name = Ingredient_Base switch
+    {
+        "mushroom" => IngredientType.Mushroom,
+        "chicken" => IngredientType.Chicken,
+        "carrot" => IngredientType.Carrot,
+        "potato" => IngredientType.Potato,
+    };
 
-*/
-// Ingredient
-//Console.WriteLine("What type of main Ingredient could you like in your soup?");
-
-//Seasoning
-//Console.WriteLine("What type of Seasoning would you like in your soup?");
-
-
-
-//}
-
-
+    // Set Seasoning |--------------------------------------------------------------------|
+    string Seasoning_Base = "null";
+    while (Seasoning_Base != "spicy" && Seasoning_Base != "salty" && Seasoning_Base != "sweet")
+    {
+        Console.WriteLine("What type of seasoning would you like: Spicy, Salty, or Sweet?");
+        Seasoning_Base = Console.ReadLine().ToLower();
+    }
+    SeasonType Seasoning_Name = Seasoning_Base switch
+    {
+        "spicy" => SeasonType.Spicy,
+        "salty" => SeasonType.Salty,
+        "sweet" => SeasonType.Sweet,
+    };
+    return (Soup_Name, Ingredient_Name, Seasoning_Name);
+}
 
 // Enumerations
 enum SoupType { Soup, Stew, Gumbo }
-enum IngredientType { Mushrooms, Chicken, Carrots, Potatoes }
+enum IngredientType { Mushroom, Chicken, Carrot, Potato }
 enum SeasonType { Spicy, Salty, Sweet }
-
-
-
