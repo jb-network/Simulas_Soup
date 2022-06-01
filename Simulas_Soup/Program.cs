@@ -7,10 +7,10 @@
 // 3) Seasoning: spicy, salty, sweet
 
 //User selection
-(SoupType soup_type, IngredientType Ingreident_type, SeasonType season_type) SelectSoup = MakeSoup();
+(SoupType soup_type, IngredientType Ingredient_type, SeasonType season_type) SelectSoup = MakeSoup();
 
 //Final output
-Console.WriteLine($"\nYou ordered: {SelectSoup.season_type} {SelectSoup.Ingreident_type} {SelectSoup.soup_type}");
+Console.WriteLine($"\nYou ordered: {SelectSoup.season_type} {SelectSoup.Ingredient_type} {SelectSoup.soup_type}");
 Console.ReadKey();
 
 
